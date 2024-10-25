@@ -215,7 +215,6 @@ nav {
     gap: 2.625rem;
 }
 
-
 .profile .avatar {
     width: 80px;
     height: 80px;
@@ -247,9 +246,6 @@ nav {
 .links a:hover {
     color: var(--clr-white);
 }
-
-
-
 
 .data {
     grid-area: data;
@@ -314,7 +310,6 @@ nav {
             "nav data data";
     }
 
-
     .data {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr); 
@@ -322,14 +317,14 @@ nav {
             "work play"
             "study exercise" 
             "social self-care";
-    }
-    
+    }    
 }
 
 /* tablet 2 */ 
 @media (max-width: 825px) {  
     
     main { 
+        margin-block: 2rem;
         max-width: 540px;   
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(4, 1fr);
@@ -375,7 +370,7 @@ nav {
     
     /* component card */
     .card {
-        width: min(100%, 326px);
+        width: min(100%, 327px);
         height: 160px;
     }
 
@@ -397,10 +392,12 @@ nav {
     }
 
     /* styling */
+
     
     main { 
-        margin-top: 80px;
-        max-width: 326px;   
+        margin-block: 80px;
+        padding: 0;
+        max-width: 327px;   
         display: flex;
         flex-direction: column;
         gap: 1.5625rem;
@@ -412,7 +409,7 @@ nav {
 
     .profile {
         height: fit-content;
-        padding: 2.1875rem 2rem;
+        padding: 2.1875rem 2rem 2rem;
         gap: 1.25rem;
         align-items: center;
     }
