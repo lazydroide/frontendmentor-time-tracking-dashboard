@@ -84,7 +84,7 @@ a {
 
 /* typography */
 .text-h1 {
-    font-size: var(--fs-56);
+    font-size: var(--fs-40);
     font-weight: var(--fw-300);
 }
 
@@ -156,19 +156,22 @@ a {
 
 .card-data {
     padding: 1.75rem 1.875rem; 
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .card-data__title {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
 }
 
-.card-data__last-period{
-    margin-top: 0.4375rem;
+.card-data__section-time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4375rem;
 }
-
 
 
 /* styling */
@@ -198,6 +201,7 @@ nav {
     flex-direction: column;
     background-color: var(--clr-dark-blue);
     height: 100%;
+    border-radius: var(--radius);
 }
 
 .profile {
@@ -205,14 +209,18 @@ nav {
     padding: 2rem 1.875rem;    
     border-radius: var(--radius);
     flex-grow: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.625rem;
 }
+
 
 .profile .avatar {
     width: 80px;
     height: 80px;
     border: 3px solid var(--clr-white);
     border-radius: 50%;
-    margin-bottom: 2.625rem;
 }
 
 .profile h1 {
@@ -223,6 +231,7 @@ nav {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1.3125rem;
     padding: 1.625rem 1.875rem;
 }
@@ -292,5 +301,145 @@ nav {
 }
 
 
+/* tablet */ 
+@media (max-width: 1110px) {  
+    
+    main { 
+        max-width: 825px;   
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-areas:
+            "nav data data"
+            "nav data data"
+            "nav data data";
+    }
+
+
+    .data {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr); 
+        grid-template-areas:
+            "work play"
+            "study exercise" 
+            "social self-care";
+    }
+    
+}
+
+/* tablet 2 */ 
+@media (max-width: 825px) {  
+    
+    main { 
+        max-width: 540px;   
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-areas:
+            "nav nav"
+            "data data"
+            "data data"
+            "data data";
+    }
+
+    .profile {
+        flex-direction: row;
+    }
+
+    .links {
+        flex-direction: row;
+    }
+
+
+    .data {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr); 
+        grid-template-areas:
+            "work play"
+            "study exercise" 
+            "social self-care";
+    }
+    
+}
+
+/* mobile */ 
+@media (max-width: 540px) { 
+    /* typography */
+    .text-h1 {
+        font-size: var(--fs-24);
+        font-weight: var(--fw-300);
+    }
+    
+    .text-card-time {
+        font-size: var(--fs-32);
+        font-weight: var(--fw-300);
+    }
+    
+    /* component card */
+    .card {
+        width: min(100%, 326px);
+        height: 160px;
+    }
+
+    .card a {
+        width: 100%;
+        height: 122px;
+        top: 38px;
+    }
+
+    .card-data {
+        padding: 1.75rem 1.5rem;
+        gap: 4px; 
+    }
+    
+    .card-data__section-time {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* styling */
+    
+    main { 
+        margin-top: 80px;
+        max-width: 326px;   
+        display: flex;
+        flex-direction: column;
+        gap: 1.5625rem;
+    }
+
+    nav {
+        height: fit-content;
+    }
+
+    .profile {
+        height: fit-content;
+        padding: 2.1875rem 2rem;
+        gap: 1.25rem;
+        align-items: center;
+    }
+
+    .profile .avatar {
+        width: 64px;
+        height: 64px;
+    }
+
+    
+
+    .links {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+
+    .data {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5625rem;
+    }
+    
+}
+
 .attribution { font-size: 11px; text-align: center; }
 .attribution a { color: hsl(228, 45%, 44%); }
+
+/*  [ ] eliminar borde que se ve del background en las cards */
+/* [x] el link que se muestra tiene que quedar resaltado por defecto */

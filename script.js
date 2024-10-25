@@ -1,6 +1,13 @@
-const dailyBtn = document.getElementById('daily');
-const weeklyBtn = document.getElementById('weekly');
-const monthlyBtn = document.getElementById('monthly');
+const dailyBtn = document.getElementById('daily-link');
+const weeklyBtn = document.getElementById('weekly-link');
+const monthlyBtn = document.getElementById('monthly-link');
+
+
+const resetBtnColor = () => {    
+    dailyBtn.style.color = "#BDC1FF";
+    weeklyBtn.style.color = "#BDC1FF";
+    monthlyBtn.style.color = "#BDC1FF";
+}
 
 const loadData = (periodicity) => {
     fetch('./data.json')
@@ -8,14 +15,19 @@ const loadData = (periodicity) => {
     .then((json) => {
         const data = document.getElementById('data');
         data.innerHTML = '';
-
         let period = '';
         if (periodicity === 'daily') {
             period = 'day';
+            resetBtnColor();
+            dailyBtn.style.color = 'white';
         } else if (periodicity === 'weekly') {
-            period = 'week';
+            period = 'week';  
+            resetBtnColor();
+            weeklyBtn.style.color = 'white';
         } else {
-            period = 'month';
+            period = 'month'; 
+            resetBtnColor();
+            monthlyBtn.style.color = 'white';  
         }
 
         json.forEach(element => {
@@ -29,17 +41,17 @@ const loadData = (periodicity) => {
                 <h2>${cardType}</h2>
                 <img src="./images/icon-ellipsis.svg" alt="">
             </div>
-            <div class="card-data__time text-card-time">${element.timeframes[periodicity].current}hrs</div>
-            <div class="card-data__last-period text-body">Last ${period} - ${element.timeframes[periodicity].previous}hrs</div>
+            <div class="card-data__section-time">
+                <div class="card-data__time text-card-time">${element.timeframes[periodicity].current}hrs</div>
+                <div class="card-data__last-period text-body">Last ${period} - ${element.timeframes[periodicity].previous}hrs</div>
+            </div>            
         </div>
     </a>
   </article>`
         });
-    
     });
 }
 
-loadData('daily');
 
 
 dailyBtn.addEventListener('click', () => {
@@ -47,4 +59,8 @@ dailyBtn.addEventListener('click', () => {
 });
 weeklyBtn.addEventListener('click', () => {loadData('weekly')});
 monthlyBtn.addEventListener('click', () => {loadData('monthly')});
+
+
+
+loadData('daily');
 
